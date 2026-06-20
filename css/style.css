@@ -1,0 +1,115 @@
+body{
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container{
+    flex: 1;
+}
+
+/* TÍTULOS */
+
+h1, h2, h3{
+    color: #222;
+    font-weight: bold;
+}
+
+/* NAVBAR */
+
+.navbar{
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* CARDS */
+
+.card{
+    border: none;
+
+    border-radius: 12px;
+
+    transition: 0.3s;
+}
+
+/* EFEITO AO PASSAR O MOUSE */
+
+.card:hover{
+
+    transform: translateY(-5px);
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+
+}
+
+/* BOTÕES */
+
+.btn-primary{
+
+    border-radius: 8px;
+
+    font-weight: bold;
+
+}
+
+/* BADGES */
+
+.badge{
+
+    font-size: 14px;
+
+    padding: 8px;
+
+}
+
+/* TABELAS */
+
+table{
+
+    background-color: white;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+}
+
+/* INPUTS */
+
+.form-control{
+
+    border-radius: 8px;
+
+}
+
+/* TEXTO */
+
+p{
+
+    color: #555;
+
+}
+
+/* CLASSES PRÓPRIAS */
+
+.cartao-servico{
+
+    border-radius: 12px;
+
+}
+
+.formulario-contato{
+
+    max-width: 700px;
+
+    margin: auto;
+
+}
+
+.rodape-site{
+
+    width: 100%;
+
+}
