@@ -1,38 +1,11 @@
 <?php include 'templates/header.php'; ?>
+<?php include 'config/conexao.php'; ?>
 
 <?php
 
-$servicos = [
-
-    [
-        "nome" => "Formatação",
-        "descricao" => "Limpeza e otimização do computador",
-        "preco" => 150,
-        "categoria" => "Manutenção"
-    ],
-
-    [
-        "nome" => "Criação de Sites",
-        "descricao" => "Desenvolvimento de sites modernos",
-        "preco" => 800,
-        "categoria" => "Desenvolvimento"
-    ],
-
-    [
-        "nome" => "Instalação de Redes",
-        "descricao" => "Configuração de redes empresariais",
-        "preco" => 300,
-        "categoria" => "Redes"
-    ],
-
-    [
-        "nome" => "Consultoria em TI",
-        "descricao" => "Suporte e consultoria para empresas",
-        "preco" => 1200,
-        "categoria" => "Consultoria"
-    ]
-
-];
+// Antes era um array fixo, agora os dados vêm do banco
+$sql = "SELECT * FROM servicos";
+$resultado = mysqli_query($conn, $sql);
 
 ?>
 
@@ -48,7 +21,7 @@ $servicos = [
 
 <div class="row">
 
-    <?php foreach($servicos as $servico){ ?>
+    <?php while($servico = mysqli_fetch_assoc($resultado)){ ?>
 
         <div class="col-md-4 mb-4">
 

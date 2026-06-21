@@ -1,28 +1,16 @@
 <?php include 'templates/header.php'; ?>
+<?php include 'config/conexao.php'; ?>
 
 <?php
 
-$pedidos = [
+// Junta pedidos + clientes + pedido_servico + servicos
+$sql = "SELECT c.nome AS cliente, s.nome AS servico, s.preco AS valor
+        FROM pedidos p
+        INNER JOIN clientes c ON p.id_cliente = c.id_cliente
+        INNER JOIN pedido_servico ps ON p.id_pedido = ps.id_pedido
+        INNER JOIN servicos s ON ps.id_servico = s.id_servico";
 
-    [
-        "cliente" => "João",
-        "servico" => "Formatação",
-        "valor" => 150
-    ],
-
-    [
-        "cliente" => "Maria",
-        "servico" => "Criação de Sites",
-        "valor" => 800
-    ],
-
-    [
-        "cliente" => "Carlos",
-        "servico" => "Instalação de Redes",
-        "valor" => 300
-    ]
-
-];
+$resultado = mysqli_query($conn, $sql);
 
 ?>
 
@@ -36,7 +24,7 @@ $pedidos = [
                 Lista de Pedidos
             </h2>
 
-            <?php if(empty($pedidos)){ ?>
+            <?php if(mysqli_num_rows($resultado) == 0){ ?>
 
                 <div class="alert alert-danger">
 
@@ -61,7 +49,7 @@ $pedidos = [
 
                     <tbody>
 
-                        <?php foreach($pedidos as $pedido){ ?>
+                        <?php while($pedido = mysqli_fetch_assoc($resultado)){ ?>
 
                             <tr>
 
